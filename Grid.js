@@ -3,15 +3,30 @@ const CELL_SIZE = 20;
 const CELL_GAP = 2;
 
 export default class Grid {
+  #cells;
   constructor(gridElement) {
-    const GRID_SIZE = 4;
-    const CELL_SIZE = 20;
-    const CELL_GAP = 2;
     gridElement.style.setProperty("--grid-size", GRID_SIZE);
     gridElement.style.setProperty("--cell-size", `${CELL_SIZE}vmin`);
     gridElement.style.setProperty("--cell-gap", `${CELL_GAP}vmin`);
 
-    createCellElement(gridElement);
+    this.#cells = createCellElement(gridElement).map((cellElement, index) => {
+      return new Cell(
+        cellElement,
+        index % GRID_SIZE,
+        Math.floor(index / GRID_SIZE)
+      );
+    });
+  }
+}
+
+class Cell {
+  #x; //creates private variables in javascript
+  #y;
+  #cellElement;
+  constructor(cellElement, x, y) {
+    this.cellElement = cellElement;
+    this.x = x;
+    this.y = y;
   }
 }
 
