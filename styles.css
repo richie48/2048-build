@@ -28,8 +28,8 @@ body {
 }
 
 .tile {
-  --x: 1;
-  --y: 1;
+  /* --x: 1;
+  --y: 1; */
   --background-lightness: 80%;
   --text-lightness: 20%;
 
@@ -39,7 +39,6 @@ body {
   align-items: center;
   width: var(--cell-size);
   height: var(--cell-size);
-  background-color: red;
   border-radius: 1vmin;
   top: -webkit-calc(
     var(--y) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap)
